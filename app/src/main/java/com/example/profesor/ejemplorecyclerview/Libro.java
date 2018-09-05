@@ -5,7 +5,7 @@ public class Libro {
     private String autor;
     private int imagen;
 
-    public Libro(String titulo, String autor, int imagen) {
+    public Libro(String autor, String titulo, int imagen) {
         this.titulo = titulo;
         this.autor = autor;
         this.imagen = imagen;

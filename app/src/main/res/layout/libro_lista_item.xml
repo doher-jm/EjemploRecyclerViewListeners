@@ -18,24 +18,24 @@
         android:src="@drawable/l19248" />
 
     <TextView
-        android:id="@+id/titulo"
+        android:id="@+id/autor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/imagen"
         android:layout_marginLeft="10dp"
         android:layout_toRightOf="@id/imagen"
-        android:text="Titulo del Libro"
+        android:text="Autor del Libro"
         android:textColor="@android:color/black"
         android:textSize="16sp"
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/autor"
+        android:id="@+id/titulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@id/titulo"
-        android:layout_below="@id/titulo"
-        android:text="Autor del Libro"
+        android:layout_alignLeft="@id/autor"
+        android:layout_below="@id/autor"
+        android:text="Título del Libro"
         android:textColor="@android:color/black" />
 
 </RelativeLayout>

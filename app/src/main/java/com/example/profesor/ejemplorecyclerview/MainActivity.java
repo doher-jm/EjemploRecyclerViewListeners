@@ -10,8 +10,10 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.NumberFormat;
@@ -137,7 +139,32 @@ public class MainActivity extends AppCompatActivity implements ItemClickListener
     public void onClick(View view, int posicion) {
         // Aqui recogemos el view del item pulsado en el recycler view, y la posición en la lista.
         // Como ejemplo mostramos la posición con Toast en el centro de la pantalla
-        Toast toast = Toast.makeText(this, "Pulsado Item: " + posicion, Toast.LENGTH_SHORT);
+
+       // Extraemos las views insertadas dentro de la view global que comforma el item
+        ViewGroup listaViews = (ViewGroup)view;
+        String titulo = null; String nombre=null;
+
+        // Identifico cada view componente por su id de recurso y extraigo la información
+        // que necesito para visualizarla con Toast
+        for(int i=0; i< listaViews.getChildCount(); i++){
+            int viewID = listaViews.getChildAt(i).getId();
+            View v = listaViews.getChildAt(i);
+
+            switch (viewID){
+                case R.id.titulo:
+                    titulo = ((TextView)v).getText().toString();
+                    break;
+                case R.id.autor:
+                    nombre = ((TextView)v).getText().toString();
+                    break;
+            }
+        }
+
+        // Muestro mensaje emergente con toda la información del item.
+        String mensaje = "Item número: " + posicion
+                + "\nAutor: " + nombre
+                + "\nTítulo: " + titulo;
+        Toast toast = Toast.makeText(this, mensaje, Toast.LENGTH_LONG);
         toast.setGravity(Gravity.CENTER, 0, 0);
         toast.show();
 
